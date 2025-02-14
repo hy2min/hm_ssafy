@@ -739,59 +739,58 @@
 
 # DFS
 
-# 인접행렬
-name = ['Amy', 'Bob', 'Charles', 'Diane', 'Edger']
-arr = [
-    [0, 1, 0, 0, 0],
-    [0, 0, 1, 0, 0],
-    [0, 0, 0, 0, 0],
-    [0, 0, 1, 0, 1],
-    [1, 0, 1, 0, 0],
-]
-
-people = [0] *5
-for i in range(5):
-    for j in range(5):
-        if arr[i][j] == 1:
-            people[j] += 1
-
-print(name[people.index(max(people))])
-
-# 인접행렬로 표시
-# 문자열의 형제 출력
-ch = input()
-idx = ord(ch) -65
-parent = -1
-bro = =1
-
-arr = [
-    [0,1,1,0,0,0],
-    [0,0,0,1,1,0],
-    [0,0,0,0,0,1],
-    [0,0,0,0,0,0],
-    [0,0,0,0,0,0],
-    [0,0,0,0,0,0],
-]
-
-# 1. 부모노드 찾기
-for i in range(6):
-    if arr[i][idx] == 1:
-        parent = i
-        break
-if parent == -1:
-    print('형제없음')
-else:
-    for i in range(6):
-        if arr[parent][i] == 1 and i!= idx:
-            bro = i
-            break
-    if bro == -1:
-        print('형제없음')
-    else:
-        print(chr(bro+65))
-
-# j //2 가 같은 경우가 1이면 형제가 있어 그걸 코드로 구현해봐
-
+# # 인접행렬
+# name = ['Amy', 'Bob', 'Charles', 'Diane', 'Edger']
+# arr = [
+#     [0, 1, 0, 0, 0],
+#     [0, 0, 1, 0, 0],
+#     [0, 0, 0, 0, 0],
+#     [0, 0, 1, 0, 1],
+#     [1, 0, 1, 0, 0],
+# ]
+#
+# people = [0] *5
+# for i in range(5):
+#     for j in range(5):
+#         if arr[i][j] == 1:
+#             people[j] += 1
+#
+# print(name[people.index(max(people))])
+#
+# # 인접행렬로 표시
+# # 문자열의 형제 출력
+# ch = input()
+# idx = ord(ch) -65
+# parent = -1
+# bro = =1
+#
+# arr = [
+#     [0,1,1,0,0,0],
+#     [0,0,0,1,1,0],
+#     [0,0,0,0,0,1],
+#     [0,0,0,0,0,0],
+#     [0,0,0,0,0,0],
+#     [0,0,0,0,0,0],
+# ]
+#
+# # 1. 부모노드 찾기
+# for i in range(6):
+#     if arr[i][idx] == 1:
+#         parent = i
+#         break
+# if parent == -1:
+#     print('형제없음')
+# else:
+#     for i in range(6):
+#         if arr[parent][i] == 1 and i!= idx:
+#             bro = i
+#             break
+#     if bro == -1:
+#         print('형제없음')
+#     else:
+#         print(chr(bro+65))
+#
+# # j //2 가 같은 경우가 1이면 형제가 있어 그걸 코드로 구현해봐
 
 
 

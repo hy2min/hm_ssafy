@@ -791,10 +791,139 @@
 #         print(chr(bro+65))
 #
 # # j //2 가 같은 경우가 1이면 형제가 있어 그걸 코드로 구현해봐
+#
+# stack queue
+# CS
+# 1. 자료구조(data structure)
+#     data를 어떻게 저장, 처리(관리)하는지
+#         1. 선형 for while
+#         2. 비선형 DFS BFS
+# 2. 알고리즘
+#     효율적인 해 찾기
+#
+# queue - FIFO
+# stack - LIFO
+#
+# # stack
+# st = list()
+# st = []
+# st.append(2)
+# st.append(3)
+# st.append(4)
+# st.append(5)
+# test = st.pop()
+#
+# # queue
+# q = list()
+# q.append(3)
+# q.append(4)
+# q.append(5)
+# q.append(6)
+# q.append(7)
+# q.pop(0)
+#
+# from collections import deque
+# q = deque()
+# q.append(5)
+# q.append(15)
+# q.append(25)
+# q.append(35)
+# q.append(45)
+#
+# print(q)
+# print(list(q))
+#
+# q.popleft()
+# q.popleft()
+#
+# print(list(q))
+#
+# # 이건 그냥 알고 넘어가도 됨.
+# import queue
+# q = queue.Queue()
+# q.put(5)
+# q.put(15)
+# q.put(25)
+# q.get()
+# print(q)
+# print(q.queue)
+# print(list(q.queue))
 
 
+arr = [
+    [0,1,1,0],
+    [0,0,1,1],
+    [0,1,0,1],
+    [0,0,0,0],
+]
+cnt = 0
+visited = [0] *4
+def dfs(now):
+    global cnt
+    if now == 3:
+        cnt += 1
 
+    for i in range(4):
+        if not visited[i] and arr[now][i]:
+            visited[i] = 1
+            dfs(i)
+            visited[i] = 0
+dfs(0)
+print(cnt)
 
+arr = [
+    [0,1,8,0],
+    [0,0,1,7],
+    [0,1,0,1],
+    [0,0,0,0],
+]
 
+Sum = 0
+Min_sum = 21e8
+visited = [0] * 4
 
+def dfs(now,Sum):
+    global Min_sum
+    if now == 3:
+        if Min_sum > Sum:
+            Min_sum = Sum
+    for i in range(4):
+        if not visited[i] and arr[now][i] != 0:
+            visited[i] = 1
+            dfs(i, Sum + arr[now][i])
+            visited[i] = 0
 
+dfs(0,0)
+
+print(Min_sum)
+
+arr = [
+    [0,0,0,0,1],
+    [0,0,1,0,1],
+    [1,0,1,0,1],
+    [1,0,1,0,0],
+    [1,0,0,0,0],
+]
+
+visited = [[0] * 5 for _ in range(5)]
+d_y = [-1,1,0,0]
+d_x = [0,0,-1,1]
+Min_cnt = 21e8
+
+def dfs(y,x,Cnt):
+    global Min_cnt
+    if y == 4 and x == 2:
+        if Min_cnt > Cnt:
+            Min_cnt = Cnt
+    for i in range(4):
+        dy = y + d_y[i]
+        dx = x + d_x[i]
+        if dy < 0 or dx < 0 or dy >= 5 or dx >= 5:
+            continue
+        if not visited[dy][dx] and arr[dy][dx] == 0:
+            visited[dy][dx] = 1
+            dfs(dy,dx,Cnt + 1)
+            visited[dy][dx] = 0
+
+dfs(0,0,0)
+print(Min_cnt)

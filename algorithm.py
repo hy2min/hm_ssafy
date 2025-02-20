@@ -850,80 +850,253 @@
 # print(list(q.queue))
 
 
-arr = [
-    [0,1,1,0],
-    [0,0,1,1],
-    [0,1,0,1],
-    [0,0,0,0],
-]
-cnt = 0
-visited = [0] *4
-def dfs(now):
-    global cnt
-    if now == 3:
-        cnt += 1
+# arr = [
+#     [0,1,1,0],
+#     [0,0,1,1],
+#     [0,1,0,1],
+#     [0,0,0,0],
+# ]
+# cnt = 0
+# visited = [0] *4
+# def dfs(now):
+#     global cnt
+#     if now == 3:
+#         cnt += 1
+#
+#     for i in range(4):
+#         if not visited[i] and arr[now][i]:
+#             visited[i] = 1
+#             dfs(i)
+#             visited[i] = 0
+# dfs(0)
+# print(cnt)
+#
+# arr = [
+#     [0,1,8,0],
+#     [0,0,1,7],
+#     [0,1,0,1],
+#     [0,0,0,0],
+# ]
+#
+# Sum = 0
+# Min_sum = 21e8
+# visited = [0] * 4
+#
+# def dfs(now,Sum):
+#     global Min_sum
+#     if now == 3:
+#         if Min_sum > Sum:
+#             Min_sum = Sum
+#     for i in range(4):
+#         if not visited[i] and arr[now][i] != 0:
+#             visited[i] = 1
+#             dfs(i, Sum + arr[now][i])
+#             visited[i] = 0
+#
+# dfs(0,0)
+#
+# print(Min_sum)
+#
+# arr = [
+#     [0,0,0,0,1],
+#     [0,0,1,0,1],
+#     [1,0,1,0,1],
+#     [1,0,1,0,0],
+#     [1,0,0,0,0],
+# ]
+#
+# visited = [[0] * 5 for _ in range(5)]
+# d_y = [-1,1,0,0]
+# d_x = [0,0,-1,1]
+# Min_cnt = 21e8
+#
+# def dfs(y,x,Cnt):
+#     global Min_cnt
+#     if y == 4 and x == 2:
+#         if Min_cnt > Cnt:
+#             Min_cnt = Cnt
+#     for i in range(4):
+#         dy = y + d_y[i]
+#         dx = x + d_x[i]
+#         if dy < 0 or dx < 0 or dy >= 5 or dx >= 5:
+#             continue
+#         if not visited[dy][dx] and arr[dy][dx] == 0:
+#             visited[dy][dx] = 1
+#             dfs(dy,dx,Cnt + 1)
+#             visited[dy][dx] = 0
+#
+# dfs(0,0,0)
+# print(Min_cnt)
 
-    for i in range(4):
-        if not visited[i] and arr[now][i]:
-            visited[i] = 1
-            dfs(i)
-            visited[i] = 0
-dfs(0)
-print(cnt)
+# BFS
+from collections import deque
+#
+# s = 'ABCDEF'
+# arr = [
+#     [0,1,1,0,0,0],
+#     [0,0,0,1,1,0],
+#     [0,0,0,0,0,1],
+#     [0,0,0,0,0,0],
+#     [0,0,0,0,0,0],
+#     [0,0,0,0,0,0]
+# ]
+#
+# def bfs(start):
+#     q = deque()
+#     q.append(start)
+#
+#     while q:
+#         now = q.popleft()
+#         print(s[now], end=" ")
+#         for i in range(6):
+#             if arr[now][i] == 1:
+#                 q.append(i)
+# bfs(0)
 
-arr = [
-    [0,1,8,0],
-    [0,0,1,7],
-    [0,1,0,1],
-    [0,0,0,0],
-]
+# name = 'BACD'
+#
+# arr = [
+#     [0,0,0,1],
+#     [1,0,1,0],
+#     [1,0,0,1],
+#     [0,0,0,0]
+# ]
+#
+# used = [0] * 4
+#
+# def bfs(start):
+#     q = deque()
+#     q.append(start)
+#     used[start] = 1
+#
+#     while q:
+#         now = q.popleft()
+#         print(name[now], end=" ")
+#         for i in range(4):
+#             if used[i] == 0 and arr[now][i] == 1:
+#                 used[i] = 1
+#                 q.append(i)
+#
+# bfs(1)
+#
+# import copy
+#
+# name = 'BACD'
+#
+# arr = [
+#     [0,0,0,1],
+#     [1,0,1,0],
+#     [1,0,0,1],
+#     [0,0,0,0]
+# ]
+#
+# cnt = 0
+# #
+# def bfs(start):
+#     global cnt
+#     q = deque()
+#     used = [0] *4
+#     used[start] = 1
+#     q.append((start,used))
+#
+#     while q:
+#         now, path= q.popleft()
+#         if now == 3:
+#             cnt += 1
+#         for i in range(4):
+#             if path[] == 0 and arr[now[0]
 
-Sum = 0
-Min_sum = 21e8
-visited = [0] * 4
+# # flood fill
+# from collections import deque
+#
+# n = int(input())
+# arr = [[0] * n for _ in range(n)]
+# y, x = map(int, input().split())
+#
+# arr[y][x] = 1
+# q = deque()
+# q.append((y,x))
+#
+# d_y = [1,-1,0,0]
+# d_x = [0,0,-1,1]
+# while q:
+#     y,x = q.popleft()
+#     for i in range(4):
+#         dy= y + d_y[i]
+#         dx= x + d_x[i]
+#         if dy<0 or dx<0 or dy>=n or dx >=n:
+#             continue
+#         if arr[dy][dx] != 0:
+#             continue
+#         arr[dy][dx] = arr[y][x] + 1
+#         q.append((dy,dx))
+#
+# for i in arr:
+#     print(*i)
 
-def dfs(now,Sum):
-    global Min_sum
-    if now == 3:
-        if Min_sum > Sum:
-            Min_sum = Sum
-    for i in range(4):
-        if not visited[i] and arr[now][i] != 0:
-            visited[i] = 1
-            dfs(i, Sum + arr[now][i])
-            visited[i] = 0
+# N 입력받은 후 N x N 사이즈의 맵에 바이러스를 투입해 보자고 합니다.
+# 바이러스를 최초로 투입할 좌표를 입력받습니다.
+# 0,1 좌표에는 몇일날 바이러스가 도착할까요?
+#
+# n = int(input())
+# arr = [[0] * n for _ in range(n)]
+# y,x = map(int, input().split())
+#
+# arr[y][x] = 1
+# q = deque()
+# q.append((y,x))
+#
+# d_y = [1,-1,0,0]
+# d_x = [0,0,-1,1]
+#
+# while q:
+#     y,x = q.popleft()
+#
+#     for i in range(4):
+#         dy = y + d_y[i]
+#         dx = x + d_x[i]
+#         if dy <0 or dx < 0 or dy >= n or dx >= n:
+#             continue
+#         if arr[dy][dx] != 0:
+#             continue
+#         arr[dy][dx] = arr[y][x] +1
+#         q.append((dy,dx))
+#
+# print(arr[0][1])
 
-dfs(0,0)
+arr = [[0] * 5 for _ in range(5)]
 
-print(Min_sum)
+y1,x1 = map(int, input().split())
+y2,x2 = map(int, input().split())
 
-arr = [
-    [0,0,0,0,1],
-    [0,0,1,0,1],
-    [1,0,1,0,1],
-    [1,0,1,0,0],
-    [1,0,0,0,0],
-]
+arr[y1][x1] = 1
+arr[y2][x2] = 1
 
-visited = [[0] * 5 for _ in range(5)]
-d_y = [-1,1,0,0]
+q = deque()
+q.append((y1,x1))
+q.append((y2,x2))
+
+
+d_y = [1,-1,0,0]
 d_x = [0,0,-1,1]
-Min_cnt = 21e8
 
-def dfs(y,x,Cnt):
-    global Min_cnt
-    if y == 4 and x == 2:
-        if Min_cnt > Cnt:
-            Min_cnt = Cnt
+while q:
+    y,x = q.popleft()
+
     for i in range(4):
         dy = y + d_y[i]
         dx = x + d_x[i]
         if dy < 0 or dx < 0 or dy >= 5 or dx >= 5:
             continue
-        if not visited[dy][dx] and arr[dy][dx] == 0:
-            visited[dy][dx] = 1
-            dfs(dy,dx,Cnt + 1)
-            visited[dy][dx] = 0
+        if arr[dy][dx] != 0:
+            continue
+        arr[dy][dx] = arr[y][x] + 1
+        q.append((dy,dx))
 
-dfs(0,0,0)
-print(Min_cnt)
+print(arr)
+max_n = -21e8
+for i in arr:
+    for j in i:
+        if max_n < j:
+            max_n = j
+print(max_n)

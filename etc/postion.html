@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            background-color: yellow;
+            width: 500px; height: 300px;
+            margin: 0px auto;
+            position: relative;
+
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+        }
+        .a {
+            background-color: red;
+            top: 50px;
+            left: 50px;
+            z-index: 3;
+        }
+        .b {
+            background-color: green;
+            top: 100px;
+            left: 100px;            
+            z-index: 2;
+            
+        }
+        .c {
+            background-color: blue;
+            top: 150px; left: 150px;
+            z-index: 1;
+        }
+    </style>
+
+</head>
+<body>
+ 
+    <section class="container">
+        <div class="box a">box a</div>
+        <div class="box b">box b</div>
+        <div class="box c">box c</div>
+    </section>
+   
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, molestias assumenda recusandae iusto numquam quod voluptatum molestiae, esse veritatis nam ipsa odit praesentium voluptatibus. Porro fugiat corrupti nam quas necessitatibus.</p>
+</body>
+</html>
